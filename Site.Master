@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GoodFood.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - GoodFood</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+    <style type: "text/css">
+
+        * {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            list-style:none;
+            text-decoration: none;
+            font-size :16px;
+        }
+
+        body {
+        background: #f3f5f9;
+        font-family: cursive;
+        }
+
+        .wrapper {
+            display:flex;
+            position:relative;
+        }
+
+        .wrapper .sidebar {
+            position:fixed;
+            width: 190px;
+            height: 100%;
+            background: black;
+            padding: 30px 0;
+
+        }
+
+        .wrapper .sidebar h1 {
+            color: #fff;
+            /*text-transform: uppercase;*/
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrapper .sidebar ul li {
+            color: #262626;
+            padding: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid rgba(225,225,225,0.05);
+
+        }
+        .wrapper .sidebar ul li a{
+            color: white;
+            display: block;
+
+        }
+
+        .wrapper .sidebar ul li:hover {
+            background: #594f8d;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    
+                    <a class="navbar-brand" runat="server" href="~/" style="color:whitesmoke; font-size: 27px; font-weight:bold">Good Food</a>
+
+                </div>
+               <%-- <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                       
+                        <li><a runat="server" href="~/DishDetails">Dish Details</a></li>
+                        <li><a runat="server" href="~/RestaurantDetails">Restaurant Details</a></li>
+                        <li><a runat="server" href="~/CustomerDetails">Customer Details</a></li>
+                        <li><a runat="server" href="~/LoyaltyPointsDetails">Loyalty Points Details</a></li>
+                        <li><a runat="server" href="~/DeliveryAddressDetails">Delivery Address Details</a></li>
+                    </ul>
+                </div>--%>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper">
+                <div class="sidebar">
+                    <h1>Good Food</h1>
+                    <ul>
+                       <li><a runat="server" href="dishRestaurant.aspx">Dish Details</a></li>
+                        <li><a runat="server" href="restaurant">Restaurant Details</a></li>
+                        <li><a runat="server" href="customer.aspx">Customer Details</a></li>
+                        <li><a runat="server" href="LoyaltyPoints">Loyalty Points Details</a></li>
+                        <li><a runat="server" href="DeliveryLocations">Delivery Address</a></li>
+                        <li><a runat="server" href="Order">Order Details</a></li>
+                        <li><a runat="server" href="dishSearch">Dish Search Form</a></li>
+                        <li><a runat="server" href="OrderItems">Customer Order Form</a></li>
+                        <li><a runat="server" href="OrderView">Order Activity Form</a></li>
+                     </ul>   
+                        </div>
+                </div>
+        </div>
+            
+       
+        
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer class ="col-md-5 col-md-offset-4">
+                <p>&copy; <%: DateTime.Now.Year %> - Designed By Jagadish Shrestha</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
